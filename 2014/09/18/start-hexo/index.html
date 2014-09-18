@@ -70,24 +70,33 @@
 
 <h3 id="step_2:">step 2:</h3>
 <p>接着，安装hexo, 进行初始化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div><div class="line">$ hexo init</div><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div><div class="line">$ hexo init</div></pre></td></tr></table></figure>
 
+<h3 id="step_3:">step 3:</h3>
 <p>配置<code>_config.yml</code>文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: github</div><div class="line">  repository: https://github.com/bayun2/bayun2.github.com.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
 
 <p>如果是<code>gh-pages</code>,则barnch填<code>gh-pages</code></p>
-<p>编译文件，部署到线上</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="step_4:">step 4:</h3>
+<p>编译文件，清除缓存（如果不清很可能删除的文件已经会被展示出来），部署到线上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo clean</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 
+<h3 id="step_5:">step 5:</h3>
 <p>如需本地测试，文件有改动，先进行<code>generate</code>，然后再<code>localhost:4000</code>即可访问到</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 
+<h3 id="step_6:">step 6:</h3>
 <p>创建一个名为”hi”的新页面</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"hi"</span></div></pre></td></tr></table></figure>
 
+<h3 id="step_7:">step 7:</h3>
 <p>下载light主题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/hexojs/hexo-theme-light.git themes/light</div><div class="line">$ <span class="built_in">cd</span> themes/light</div><div class="line">$ git pull</div></pre></td></tr></table></figure>
 
+<p>并在<code>_config.yml</code>文件中做修改,<code>theme: light</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Extensions</span></div><div class="line"><span class="comment">## Plugins: https://github.com/hexojs/hexo/wiki/Plugins</span></div><div class="line"><span class="comment">## Themes: https://github.com/hexojs/hexo/wiki/Themes</span></div><div class="line">theme: light</div><div class="line">exclude_generator:</div></pre></td></tr></table></figure>
+
+<p>然后在后续如需加入css或者js，这需到对应主题的<code>/light/source/</code>下进行修改，不能直接在<code>/public/</code>下修改，否则<code>hexo generate</code>后无效</p>
 
       
     </div>
